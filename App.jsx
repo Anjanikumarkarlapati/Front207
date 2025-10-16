@@ -10,7 +10,7 @@ function PostList() {
     axios
       .get("https://jsonplaceholder.typicode.com/posts")
       .then((response) => {
-        setPosts(response.data); 
+        setPosts(response.data); // store data in state
         setLoading(false);
       })
       .catch((error) => {
@@ -72,9 +72,10 @@ function UserList() {
 function UseEffectEg() {
   const [count, setCount] = useState(0);
 
+  // useEffect runs after every render when "count" changes
   useEffect(() => {
     document.title = `You clicked ${count} times`;
-  }, [count]); 
+  }, [count]); // dependency array
 
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
